@@ -7,6 +7,7 @@ export const RecipeItem = styled.div`
   width: 100%;
   border: 1px solid white;
   text-align: center;
+  border-radius: 20px;
 `;
 
 export const RecipeTitle = styled.h3`
@@ -17,12 +18,9 @@ export const RecipeTitle = styled.h3`
 export const AddToFavoritesButton = styled.button`
   padding: 5px;
   margin-top: 10px;
-  background-color: red;
-  border-radius: 5px;
-  transition: all 0.15s;
+`;
 
-  &:hover {
-    background-color: black;
-    color: white;
-  }
+export const HeartIcon = styled.img`
+  width: 30px;
+  height: 30px;
 `;
