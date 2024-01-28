@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const RecipeItem = styled.div`
-  padding: 15px;
+  padding: 40px 15px;
   margin: 20px;
   max-width: 300px;
   width: 100%;
-  border: 1px solid white;
+  border: 1px solid #000000;
   text-align: center;
   border-radius: 20px;
 `;
@@ -16,8 +16,12 @@ export const RecipeTitle = styled.h3`
 `;
 
 export const AddToFavoritesButton = styled.button`
-  padding: 5px;
-  margin-top: 10px;
+  margin-top: 20px;
+
+  svg {
+    width: 25px;
+    height: 25px;
+  }
 `;
 
 export const HeartIcon = styled.img`

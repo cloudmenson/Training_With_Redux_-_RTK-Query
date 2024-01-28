@@ -1,29 +1,21 @@
-import { useDispatch, useSelector } from "react-redux";
-
 import * as Styles from "./styles";
-import HeartIcon from "../../assets/heart.svg";
-import FilledHeartIcon from "../../assets/filled-heart.svg";
-import { actions } from "../../store/favorites/favorites.slice";
+import { useActions } from "../../hooks/useActions";
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
+import { useFavorites } from "../../hooks/useFavorites";
 
 const RecipeItem = ({ recipe }) => {
-  const favorites = useSelector((state) => state.favorites);
+  const { favorites } = useFavorites();
+  const { toggleFavorites } = useActions();
+
   const isFavorite = favorites.some((r) => r.id === recipe.id);
 
-  const dispatch = useDispatch();
-
-  console.log(favorites);
+  console.log(...favorites);
 
   return (
     <Styles.RecipeItem>
       <Styles.RecipeTitle>{recipe.name}</Styles.RecipeTitle>
-      <Styles.AddToFavoritesButton
-        onClick={() => dispatch(actions.toggleFavorites(recipe))}
-      >
-        {isFavorite ? (
-          <Styles.HeartIcon src={FilledHeartIcon} alt="Filled Heart Icon" />
-        ) : (
-          <Styles.HeartIcon src={HeartIcon} alt="Heart Icon" />
-        )}
+      <Styles.AddToFavoritesButton onClick={() => toggleFavorites(recipe)}>
+        {isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
       </Styles.AddToFavoritesButton>
     </Styles.RecipeItem>
   );
